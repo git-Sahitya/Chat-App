@@ -10,6 +10,7 @@ export const useAuthStore = create((set)=>({
    isUpdatingProfile:false,
    isCheckingAuth:true,
 
+
    checkAuth : async () => {
     try {
         const res = await axiosInstance.get("/auth/check")
@@ -62,5 +63,9 @@ export const useAuthStore = create((set)=>({
     } catch (error) {
         toast.error(error.response.data.message)
     }
+   },
+
+   updateProfile : async (data) => {
+    
    }
 }))
