@@ -1,6 +1,7 @@
-@import "tailwindcss";
-@plugin "daisyui" {
-  themes: light --default, dark --prefersdark, "cupcake",
+export const THEMES = [
+    "light",
+      "dark",
+      "cupcake",
       "bumblebee",
       "emerald",
       "corporate",
@@ -30,5 +31,5 @@
       "dim",
       "nord",
       "abyss",
-      "sunset";
-}
+      "sunset",
+]
