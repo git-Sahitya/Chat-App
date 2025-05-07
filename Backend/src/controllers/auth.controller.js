@@ -33,16 +33,22 @@ export const signup = async (req, res) => {
       email,
       password: hashPassword,
     });
-    if (newUser) {
-      // generate jwt in utils/utils.js then call it.
-      generateToken(newUser._id, res);
+    if (newUser) { 
+
       await newUser.save();
+
+      // generate jwt in utils/utils.js then call it.
+    const jwt = generateToken(newUser._id, res);
+   
+      
       res.status(201).json({
         success: true,
         _id: newUser._id,
         fullName: newUser.fullName,
         email: newUser.email,
         profilePic: newUser.profilePic,
+        token : jwt
+       
       });
     } else {
       res.status(400).json({ success: false, message: "Invalid user data" });
@@ -67,12 +73,13 @@ export const login = async (req, res) => {
     if (!isPasswordCorrect) {
       return res.status(400).json({message: "Invalid email or password"});
     }
-    generateToken(user._id,res)
+   const jwt =  generateToken(user._id,res)
     res.status(200).json({
       _id:user._id,
       fullName:user.fullName,
       email:user.email,
-      profilePic:user.profilePic
+      profilePic:user.profilePic,
+      token : jwt
     })
   } catch (error) {
     console.log("Error in login controllers:", error.message);
