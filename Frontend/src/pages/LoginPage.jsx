@@ -1,11 +1,12 @@
-import React from 'react'
+import { Mail } from "lucide-react";
+import React from "react";
 
 const LoginPage = () => {
   return (
-    <div>
+    <div >
       
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
