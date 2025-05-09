@@ -7,5 +7,8 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss(),  
   ],
+  optimizeDeps: {
+    include: ["socket.io-client"],
+  },
 })
 
